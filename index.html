@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Team message archives</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><button id="home" class="brand" aria-label="Archive home"><span class="brand-mark">A</span><span>Team archives<span class="brand-note">A shared record of our work</span></span></button><nav><button id="help" class="quiet">How to use</button><button id="lock" class="quiet" hidden>Lock archive</button></nav></header>
+<main id="main">
+  <section id="welcome" class="welcome">
+    <p class="eyebrow">Workspace library</p><h1>Conversations,<br>all in one place.</h1>
+    <p class="intro">Find a message, revisit a decision, or pick up a conversation.<br>Choose your workspace to get started.</p>
+    <div class="workspace-grid">
+      <button class="workspace paper" data-workspace="paper-prisons"><span class="workspace-top"><span class="monogram">PP</span><span class="pill">Password protected</span></span><span class="workspace-name">Paper Prisons</span><span class="workspace-description">Juneteenth Expungement · Research and the team's ongoing work.</span><span class="workspace-bottom">Open archive <span aria-hidden="true">↗</span></span></button>
+      <button class="workspace tech" data-workspace="tech-bono"><span class="workspace-top"><span class="monogram">TB</span><span class="pill">Password protected</span></span><span class="workspace-name">Tech Bono</span><span class="workspace-description">Technology, public service, and ideas in motion.</span><span class="workspace-bottom">Open archive <span aria-hidden="true">↗</span></span></button>
+    </div>
+    <p class="footnote">Search by keyword, person, channel, or date. Replies stay with their conversations.</p>
+  </section>
+  <section id="login" class="login" hidden>
+    <button id="login-back" class="back">← All archives</button><span id="login-mark" class="monogram"></span>
+    <p class="eyebrow">Team access</p><h1 id="login-title"></h1><p class="muted">Enter the login shared with you by your team administrator.</p>
+    <form id="unlock-form">
+      <label for="username">Username</label><input id="username" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="64" required>
+      <label for="password">Password</label><div class="password-field"><input id="password" name="password" type="password" autocomplete="current-password" maxlength="1024" required><button id="show-password" type="button" class="quiet" aria-label="Show password">Show</button></div>
+      <button id="unlock" class="primary" type="submit">Unlock archive</button><p id="login-status" class="status" role="status" aria-live="polite"></p>
+    </form>
+    <p class="footnote">Your password stays in your browser. Ask your team administrator if you need access or a password reset.</p>
+  </section>
+  <section id="archive" hidden>
+    <div class="archive-heading"><div><button id="switch" class="back">← Switch archive</button><p id="workspace-label" class="eyebrow"></p><h1 id="archive-title"></h1><p id="archive-subtitle" class="muted"></p></div><p id="archive-stat" class="stat"></p></div>
+    <div class="archive-layout">
+      <aside><div class="filter-heading"><h2>Find a message</h2><button id="reset" class="text-button">Reset</button></div>
+        <form id="filters"><label for="query">Search</label><input id="query" type="search" placeholder="Search conversations…" autocomplete="off">
+        <label for="channel">Channel</label><select id="channel"><option value="">All public channels</option></select>
+        <label for="person">Person</label><select id="person"><option value="">Everyone</option></select>
+        <div class="dates"><div><label for="start">From</label><input id="start" type="date"></div><div><label for="end">To</label><input id="end" type="date"></div></div>
+        <label for="sort">Order</label><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="person">Person</option><option value="channel">Channel</option></select>
+        <button class="primary" type="submit">Apply filters</button></form><p id="last-checked" class="footnote"></p>
+      </aside>
+      <section class="results" aria-label="Saved messages"><div class="result-heading"><p id="result-count" role="status" aria-live="polite"></p><span class="muted">Pacific time</span></div><div id="messages"></div><div id="pagination" class="pagination"><button id="previous" class="quiet">← Previous</button><span id="page-label"></span><button id="next" class="quiet">Next →</button></div></section>
+    </div>
+  </section>
+</main>
+<footer>Team message archives <span>Read together. Keep the context.</span></footer>
+<dialog id="thread"><div class="dialog-heading"><h2 id="thread-title">Conversation</h2><button id="close-thread" class="quiet">Close ✕</button></div><div id="thread-messages"></div></dialog>
+<dialog id="help-dialog"><div class="dialog-heading"><h2>How to use the archive</h2><button id="close-help" class="quiet">Back to archive ✕</button></div><div class="help-copy"><p>Choose your workspace and enter your username and password to unlock it.</p><p>Search a word or phrase, or narrow the results by channel, person, and date. Selecting a channel opens its conversations in time order.</p><p>Choose <strong>View conversation</strong> to see the original message and its saved replies together. All times are shown in Pacific time.</p><p>Use <strong>Lock archive</strong> when you finish, especially on a shared computer. The archive also locks after 15 minutes without activity. Reload the page for newly published messages.</p><p>For access or password changes, contact your team administrator.</p></div></dialog>
+<noscript>This archive needs JavaScript enabled to unlock and search your messages.</noscript>
+</body></html>
